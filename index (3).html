@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ativar Windows e Office - Método Premium</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <!-- Efeito Sakura será gerado via JavaScript -->
+    
+    <!-- Tela de Login -->
+    <div class="login-screen" id="loginScreen">
+        <div class="login-container">
+            <div class="login-logo">
+                <i class="fab fa-microsoft"></i>
+            </div>
+            <h2 class="login-title">Acesso ao Método Premium</h2>
+            <p class="login-subtitle">Insira a chave de licença para continuar</p>
+            
+            <form class="login-form" id="loginForm">
+                <input type="text" class="login-input" id="licenseKey" placeholder="Chave de Licença" required>
+                <button type="submit" class="login-btn">Acessar Método</button>
+                <div class="login-error" id="loginError">
+                    Chave de licença incorreta. Tente novamente.
+                </div>
+            </form>
+            
+            <p class="login-note">
+                Para obter uma chave de licença, entre em contato pelo WhatsApp ou faça uma doação via PIX.
+            </p>
+        </div>
+    </div>
+    
+    <!-- Conteúdo Principal (inicialmente oculto) -->
+    <div class="container" id="mainContent" style="display: none;">
+        <div class="header">
+            <div class="logo">
+                <i class="fab fa-windows"></i>
+            </div>
+            <h1>Ativar Windows e Office</h1>
+            <p class="subtitle">Método premium para ativação</p>
+        </div>
+        
+        <!-- Seletor de Método -->
+        <div class="method-selector">
+            <div class="method-option active" data-method="windows">
+                <i class="fab fa-windows"></i> Windows
+            </div>
+            <div class="method-option" data-method="office">
+                <i class="far fa-file-word"></i> Office
+            </div>
+        </div>
+        
+        <div class="steps">
+            <div class="step" id="step1">
+                <div class="step-header">
+                    <div class="step-number">1</div>
+                    <h3>Abra o Windows PowerShell</h3>
+                </div>
+                <p>Pressione <strong>Win + X</strong> e selecione "Windows PowerShell (Admin)" ou pesquise por "PowerShell" no menu iniciar e execute como administrador.</p>
+            </div>
+            
+            <div class="step" id="step2">
+                <div class="step-header">
+                    <div class="step-number">2</div>
+                    <h3>Execute o código de ativação</h3>
+                </div>
+                <p>Copie e cole o seguinte comando no PowerShell:</p>
+                <div class="code-box">
+                    <code id="code">irm https://get.activated.win | iex</code>
+                </div>
+                <button class="copy-btn" onclick="copyCode()">
+                    <i class="far fa-copy"></i> Copiar Código
+                </button>
+                <p>Pressione <strong>Enter</strong> para executar o comando.</p>
+            </div>
+            
+            <div class="step" id="step3">
+                <div class="step-header">
+                    <div class="step-number">3</div>
+                    <h3>Aguarde o painel carregar</h3>
+                </div>
+                <p>Após executar o comando, aguarde alguns segundos até que o painel de ativação seja carregado.</p>
+            </div>
+            
+            <div class="step" id="step4">
+                <div class="step-header">
+                    <div class="step-number">4</div>
+                    <h3 id="step4-title">Selecione a opção de ativação</h3>
+                </div>
+                <p id="step4-desc">No painel que abrir, selecione a <strong>Opção 1</strong> para ativar o Windows.</p>
+                <p id="step4-office-desc" style="display: none;">No painel que abrir, selecione a <strong>Opção 2</strong> para ativar o Office.</p>
+                <p id="step4-office-note" style="display: none; margin-top: 10px; font-style: italic; font-size: 0.9rem;">Certifique-se de ter o Microsoft Office instalado antes de prosseguir.</p>
+            </div>
+        </div>
+        
+        <!-- Botões de Ação -->
+        <div class="action-buttons">
+            <a href="https://wa.me/5511942508349" target="_blank" class="action-btn support-btn">
+                <i class="fab fa-whatsapp"></i> Suporte WhatsApp
+            </a>
+            <a href="https://www.microsoft.com/pt-br/microsoft-365" target="_blank" class="action-btn download-btn">
+                <i class="fas fa-download"></i> Baixar Office
+            </a>
+        </div>
+        
+        <!-- Informações do PIX -->
+        <div class="pix-info">
+            <h3><i class="fas fa-qrcode"></i> Ajude este projeto</h3>
+            <p>Faça uma doação via PIX para manter este serviço</p>
+            <div class="pix-code">11918296867</div>
+            <button class="copy-btn" onclick="copyPix()">
+                <i class="far fa-copy"></i> Copiar Chave PIX
+            </button>
+            <p class="pix-note">Chave PIX: CPF/CNPJ</p>
+        </div>
+        
+        <div class="warning">
+            <h3><i class="fas fa-exclamation-triangle"></i> Aviso Importante</h3>
+            <p>Este método é fornecido apenas para fins educacionais. Certifique-se de ter uma licença válida para o Windows e Office antes de realizar qualquer ativação.</p>
+        </div>
+        
+        <footer>
+            <p>Guia educativo - Sem garantias de funcionamento</p>
+        </footer>
+    </div>
+
+    <div class="success-message" id="successMessage">
+        <i class="fas fa-check-circle"></i> Código copiado para a área de transferência!
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
